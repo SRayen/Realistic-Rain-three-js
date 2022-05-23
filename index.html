@@ -38,6 +38,10 @@
             flash.position.set(200, 300, 100);
             scene.add(flash);
 
+            flash = new THREE.PointLight(0xFDD023, 30, 500, 1.7);
+            flash.position.set(200, 300, 100);
+            scene.add(flash)
+
             /* I’ll setup the WebGLRenderer using the current viewport size. Then add it to the page as canvas element. Also add fog into the scene to create cinematic effect. */
             renderer = new THREE.WebGLRenderer();
             scene.fog = new THREE.FogExp2(0x11111f, 0.002);
@@ -143,7 +147,7 @@
 
             /* In the animate function, I’ll add a logic to random the flash position and light intensity. You can change the numbers in the if condition to adjust the frequency and intensity. */
             if (Math.random() > 0.75) {
-                if (flash.power < 100)
+                if (flash.power < 1000)
                     flash.position.set(
                         Math.random() * 400,
                         300 + Math.random() * 200,
